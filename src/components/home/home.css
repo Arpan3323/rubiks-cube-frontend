@@ -1,6 +1,56 @@
-/* styles.css or styles.scss */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
 
-/* Your additional styles can go here */
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.cubeStringFields{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem 1rem 1rem 0.7rem;
+    gap: 1rem;
+    
+}
+
+.userButtons{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    width: 100%;
+    
+}
+
+.userButtons button{
+    background-color: #fff;
+    border: 2px solid rgba(18, 25, 225, 0.843);
+    text-align: center;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    width: 20%;
+    height: 40px;
+    margin-left: 2.5rem;
+    margin-right: 2.85rem;
+}
+
+.userButtons button:hover{
+    background-color: rgba(18, 25, 225, 0.843);
+    color: #fff;
+}
+
+.userInputField {
+    width: 50%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #2e68b4d7;
+    text-align: center;
+    
+  }

@@ -36,10 +36,16 @@ const Home = () => {
     )
     }
   return (
-    <div className='cubeFields'>
-        <input placeholder='Enter input Cube' aria-label='Enter' className='userInputField' type="text" onChange={handleChange}/>
-        <button onClick={getResponse} className='bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full'>Test API</button>
-        {cubeSolution}
+    <div className='homeContainer'>
+      <div className='cubeStringFields'>
+        <input placeholder='Enter input Cube' className='userInputField' type="text" onChange={handleChange}/>
+      </div>
+      <div className="userButtons responsive">
+        <button onClick={getResponse} >Solve</button>
+        <button onClick={getResponse} >Scramble</button>
+        
+      </div>
+      {cubeSolution}
       </div>
   )
 }
