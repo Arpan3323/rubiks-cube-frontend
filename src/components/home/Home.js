@@ -2,6 +2,7 @@ import React from 'react'
 import './home.css';
 import api from '../../api/axiosConfig'
 import { useState } from 'react'
+import Cube from '../cube/Cube';
 
 const Home = () => {
   const [cubeString, setCubeString] = useState('')
@@ -45,8 +46,12 @@ const Home = () => {
         <button onClick={getResponse} >Scramble</button>
         
       </div>
+      <Cube />
+
       {cubeSolution}
-      </div>
+
+    
+    </div>
   )
 }
 

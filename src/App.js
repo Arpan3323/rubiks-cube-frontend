@@ -15,7 +15,6 @@ const App = () => {
     <div className='app'>
       <Navbar />
       <Home />
-      <LeftCubeFace />
     </div>
   )
 }
