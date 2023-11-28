@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const CubeContainer = styled.div`
+
+    padding: 2rem 0;
+`;
+
 export const RowContainer = styled.div`
     display: flex;
     align-items: center;
@@ -24,18 +29,9 @@ export const Square = styled.div`
     border: 1px solid #000;
     border-radius: 5px;
     background-color: ${(props) => props.colorOfPiece};
+    &:hover {
+        border-radius: 10px;
+        background-color: ${(props) => props.colorOfPiece === "white" ? "silver" : props.colorOfPiece === "yellow" ? "gold" : props.colorOfPiece === "green" ? "lime" : props.colorOfPiece === "blue" ? "cyan" : props.colorOfPiece === "red" ? "tomato" : "tan"};
+
+    }
 `;
-
-// You can then use these components in your React component like this:
-
-// <Face>
-//     <Square />
-//     <Square />
-//     <Square />
-//     <Square />
-//     <Square />
-//     <Square />
-//     <Square />
-//     <Square />
-//     <Square />
-// </Face>
