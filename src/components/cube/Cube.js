@@ -1,5 +1,4 @@
 import React from 'react'
-import api from '../../api/axiosConfig'
 import { Face, Square, RowContainer, ColumnContainer, CubeContainer } from './Cube.style'
 
 const Cube = ({inputCubeString}) => {
