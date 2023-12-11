@@ -1,7 +1,8 @@
 import React from 'react'
 import { Face, Square, RowContainer, ColumnContainer, CubeContainer } from './Cube.style'
+import Rotator from './Rotator'
 
-const Cube = ({inputCubeString}) => {
+const Cube = ({inputCubeString}, {solution}) => {
 
     console.log(separateColorsForEachFace(inputCubeString))
     const leftFaceColors = separateColorsForEachFace(inputCubeString).left
@@ -86,8 +87,10 @@ const Cube = ({inputCubeString}) => {
                 <Square colorOfPiece={backFaceColors.length !== 0 ? backFaceColors[8] : "blue"}/>
             </Face>            
         </RowContainer>
+        <Rotator solution={solution} cubeString={inputCubeString}/>
         
     </CubeContainer>
+    
   )
 }
 

@@ -81,7 +81,7 @@ const Home = () => {
         <button onClick={getSolveResponse} >Solve</button>
         <button onClick={getScrambleResponse} >Scramble</button>
       </div>
-      <Cube inputCubeString={cubeString.length === validCubeStringLength && !(regex.test(cubeString)) ? cubeString : ""}/>
+      <Cube inputCubeString={cubeString.length === validCubeStringLength && !(regex.test(cubeString)) ? cubeString : ""} solution={cubeSolution}/>
       {cubeSolution}
     </div>
   )
