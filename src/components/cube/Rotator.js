@@ -1,9 +1,12 @@
 import React from 'react'
 import api from '../../api/axiosConfig'
 
-const Rotator = ({solution}, {cubeString}) => {
+const Rotator = ({solution, cubeString}) => {
   return (
     <div>
+        {console.log({solution})}
+        {console.log({cubeString})}
+
         {rotateCubeForSolution(solution, cubeString)}
     </div>
   )
@@ -14,10 +17,10 @@ function rotateCubeForSolution(solution, cubeString){
 
     if (solution && solution.length !== 0){
         
-        for (let i = 0; i < solution.length; i++){
+        for (let i = 0; i < 2; i++){
             setTimeout(() => {
                 rotate(solution[i], cubeString)
-            }, 1000)
+            })
             console.log("I am here")
 
         
@@ -27,10 +30,15 @@ function rotateCubeForSolution(solution, cubeString){
 }
 
 
-function rotate(solution, cubeString){
+async function rotate(solution, cubeString){
+
     try{
-        const response = api.get(`/rubik/rotate?dir=${solution}&cube=${cubeString}`)
+        console.log(solution)
+        console.log(cubeString)
+        const response = await api.get(`/rubik/rotate?dir=${solution}&cube=${cubeString}`)
+        console.log(response)
         cubeString = response.data.split(' ')[1].replace(',', '').replace(/'/g, '')
+        console.log(cubeString)
 
     }
     catch(error){

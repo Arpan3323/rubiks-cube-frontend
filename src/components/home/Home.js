@@ -3,13 +3,15 @@ import './home.css';
 import api from '../../api/axiosConfig'
 import { useState } from 'react'
 import Cube from '../cube/Cube';
+import Rotator from '../cube/Rotator';
 
 const Home = () => {
   const validCubeStringLength = 54
   const regex = new RegExp('[^rbgoyw]');
   const [cubeString, setCubeString] = useState('gggggggggbbbbbbbbbrrrrrrrrroooooooooyyyyyyyyywwwwwwwww')
   const [cubeSolution, setCubeSolution] = useState('')
-
+  var isSolved = true
+  //const [cubeRotations, setCubeRotations] = useState('')
   const handleChange = (event) => {
     setCubeString(event.target.value)
   }
@@ -26,11 +28,41 @@ const Home = () => {
     try{
       const response = await api.get(`/rubik/solve?cube=${cubeString}`)
       setCubeSolution(parseResponse(response.data))
+      initiateRotations(parseResponse(response.data))
+      
     }
     catch(error){
       console.log(error)
     }
   }
+
+  const initiateRotations = async (rotations) => {
+    console.log(rotations)
+    console.log(rotations.length)
+    if (rotations && rotations.length !== 0){
+      let currentCubeString = cubeString
+      //rotate(rotations)
+      //console.log(rotations.slice(0,4))
+      for (const rotation of rotations) {
+        currentCubeString = await rotate(rotation, currentCubeString)
+       //setCubeString(await rotate(rotation, currentCubeString))
+      }
+      //rotate(rotations)
+    }
+}
+
+const rotate = async (rotation, currentCubeString) => {
+  try{
+    const response = await api.get(`/rubik/rotate?dir=${rotation}&cube=${currentCubeString}`)
+    const newCubeString = parseResponse(response.data)
+    setCubeString(newCubeString)
+    console.log(newCubeString)
+    return newCubeString
+  }
+  catch(error){
+    console.log(error)
+  }
+}
 
   const getScrambleResponse = async () => {
     //TODO: This is getting messy, I should probably make a function to handle this
@@ -46,6 +78,7 @@ const Home = () => {
       const response = await api.get(`/rubik/rotate?dir=${randomRotations()}&cube=${cubeString}`)
       //response.data = response.data.split(' ')[1].replace(',', '').replace(/'/g, '')
       setCubeString(parseResponse(response.data))
+      //handleChange(response.data)
     }
     catch(error){
       console.log(error)
@@ -75,13 +108,14 @@ const Home = () => {
     <div className='homeContainer'>
       <p>{regex.test(cubeString)&& "Cube string must only contain 'r', 'b', 'g', 'o', 'y', 'w'"}</p>
       <div className='cubeStringFields'>
-        <input placeholder='Enter input Cube' className='userInputField' type="text" onChange={handleChange} defaultValue={'gggggggggbbbbbbbbbrrrrrrrrroooooooooyyyyyyyyywwwwwwwww'} value={cubeString}/>
+        <input placeholder='Enter input Cube' className='userInputField' type="text" onChange={handleChange} value={cubeString}/>
       </div>
       <div className="userButtons responsive">
         <button onClick={getSolveResponse} >Solve</button>
         <button onClick={getScrambleResponse} >Scramble</button>
       </div>
       <Cube inputCubeString={cubeString.length === validCubeStringLength && !(regex.test(cubeString)) ? cubeString : ""} solution={cubeSolution}/>
+      {/*<Rotator solution={cubeSolution} cubeString={cubeString.length === validCubeStringLength && !(regex.test(cubeString)) ? cubeString : ""}/>*/}
       {cubeSolution}
     </div>
   )
