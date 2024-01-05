@@ -1,0 +1,39 @@
+.rotationsTextContainer{
+    border: 1px solid #0b0e12d7;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+}
+
+.rotationsTextContainer label{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.rotationsTextContainer textarea{
+    width: 1000px;
+    height: 80px;
+    border: 1px solid #2e68b4d7;
+    border-radius: 10px;
+    padding: 0.5rem;
+    font-family: 'Georgia', sans-serif;
+    font-weight: 500;
+    box-shadow: 0 0 5px #2e3ecad7;
+    background-image: linear-gradient(#97c6f2, #abf6f7);
+    resize: none;
+    overflow: auto;
+
+}
+
+.rotationsTextContainer textarea::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Webkit browsers */
+}
+
+.rotationsTextContainer textarea:focus{
+    outline: none;
+    
+    box-shadow: 0 0 10px #2e3ecad7;
+    transition: all 0.5s ease;
+}

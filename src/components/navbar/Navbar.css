@@ -1,106 +1,30 @@
 .navbar{
-    background-color: #fff;
+    background-color: #fcfcfc;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    gap: 2rem;
-    padding: 0rem 1rem;
+    padding: 1rem 2rem;
     position: sticky;
     height: 3rem;
 }
 
-
 .navbar a {
-    
     position: relative;
-    transition: color 0.5s ease;
-    font-size: 2rem;
-
-}
-
-.navbar a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 5px;
-    background: rgba(58, 200, 239, 0.843);
-    transition: width 0.5s ease;
-}
-
-.navbar a:hover {
-    color: rgba(58, 200, 239, 0.843);
-}
-
-.navbar a:hover::after {
-    width: 100%;
-}
-
-.navbar ul {
+    overflow: hidden;
     text-decoration: none;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
+    color: #080404;
+    font-size: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Add a shadow */
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: 'Georgia', sans-serif;
 }
 
-.navbar ul a::after {
-    bottom: -3px;  
-}
 
-@media screen and (max-width: 768px) {
-    .navbar{
-        background-color: #fff;
-        box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 2rem;
-        padding: 0rem 1rem;
-        position: sticky;
-        height: 3rem;
-    }
-    
-    
-    .navbar a {
-        
-        position: relative;
-        transition: color 0.5s ease;
-        font-size: 1rem;
-    
-    }
-    
-    .navbar a::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 5px;
-        background: rgba(58, 121, 239, 0.843);
-        transition: width 0.5s ease;
-    }
-    
-    .navbar a:hover {
-        color: rgba(58, 121, 239, 0.843);
-    }
-    
-    .navbar a:hover::after {
-        width: 100%;
-    }
-    
-    .navbar ul {
-        text-decoration: none;
-        list-style: none;
-        display: flex;
-        justify-content: space-between;
-        gap: 2rem;
-    }
-    
-    .navbar ul a::after {
-        bottom: -3px;  
-    }
-    
+.navbar :active {
+    transform: scale(0.98);
+
 }

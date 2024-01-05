@@ -6,56 +6,99 @@
     justify-content: center;
 }
 
-.homeContainer p{
+
+.errorMessage{
+    align-items: center;
+    border : 1px solid red;
     margin: 1rem;
-    
+    height: 30px;
+    padding: 0.5rem;
+    color: rgb(243, 81, 81);
 }
 
 
-.cubeStringFields{
+.fieldContainer{
     display: flex;
     justify-content: center;
-    width: 100%;
-    padding: 0rem 1rem 1rem 0.7rem;
-    gap: 1rem;
+    width: 99%;
+    margin: 1rem;
+    padding: 1rem 1rem 1rem 0.7rem;
+    border: 1px solid #2e68b4d7;
+    
     
 }
 
-.userButtons{
+.userButtonsContainer{
 
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 4rem;
-    width: 100%;
+    gap: 18rem;
+    width: 95%;
+    border: 1px solid #2e68b4d7;
     
 }
 
-.userButtons button{
+.userButtonsContainer button{
     background-color: #fff;
     border: 2px solid rgba(18, 25, 225, 0.843);
     text-align: center;
-    font-size: 1.2rem;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.5s ease;
-    width: 20%;
-    height: 40px;
-    margin-left: 2.5rem;
-    margin-right: 2.85rem;
+    width: 150px;
+    height: 30px;
+    font-family: 'Georgia', sans-serif;
+    font-weight: 500;
+
 }
 
-.userButtons button:hover{
+.userButtonsContainer button:hover{
     background-color: rgba(18, 25, 225, 0.843);
     color: #fff;
 }
 
 .userInputField {
-    width: 50%;
+    width: 600px;
     height: 40px;
     border-radius: 5px;
-    border: 1px solid #2e68b4d7;
+    border: 3px solid #2e68b4d7;
     text-align: center;
     
   }
+
+.userInputField:focus{
+        outline: none;
+        border: 3px solid #2e68b4d7;
+        box-shadow: 0 0 10px #2ea8cad7;
+        transition: all 0.5s ease;
+}
+
+
+
+  @media (max-width: 800px){
+    .userInputField{
+        width: 800px;
+        height: 30px;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 0.65rem;
+    }
+
+    .userButtonsContainer{
+        gap: 7rem;
+        width: 95%;
+        border: 1px solid #2e68b4d7;
+        
+    }
+    .userButtonsContainer button{
+        width: 100px;
+        height: 23px;
+        font-size: 0.65rem;
+    }
+
+    
+
+    
+}

@@ -3,7 +3,7 @@ import './home.css';
 import api from '../../api/axiosConfig'
 import { useState } from 'react'
 import Cube from '../cube/Cube';
-import Rotator from '../cube/Rotator';
+import RotationsText from '../rotationsText/RotationsText';
 
 const Home = () => {
   const validCubeStringLength = 54
@@ -106,17 +106,20 @@ const rotate = async (rotation, currentCubeString) => {
 
   return (
     <div className='homeContainer'>
-      <p>{regex.test(cubeString)&& "Cube string must only contain 'r', 'b', 'g', 'o', 'y', 'w'"}</p>
-      <div className='cubeStringFields'>
+      <div className='errorMessage'>
+        <p>{regex.test(cubeString)&& "Cube string must only contain 'r', 'b', 'g', 'o', 'y', 'w'"}</p>
+      </div>
+      
+      <div className='fieldContainer'>
         <input placeholder='Enter input Cube' className='userInputField' type="text" onChange={handleChange} value={cubeString}/>
       </div>
-      <div className="userButtons responsive">
+      <div className="userButtonsContainer">
         <button onClick={getSolveResponse} >Solve</button>
         <button onClick={getScrambleResponse} >Scramble</button>
       </div>
       <Cube inputCubeString={cubeString.length === validCubeStringLength && !(regex.test(cubeString)) ? cubeString : ""} solution={cubeSolution}/>
       {/*<Rotator solution={cubeSolution} cubeString={cubeString.length === validCubeStringLength && !(regex.test(cubeString)) ? cubeString : ""}/>*/}
-      {cubeSolution}
+      <RotationsText solution={cubeSolution}/>
     </div>
   )
 }
