@@ -35,10 +35,10 @@ export const Square = styled.div`
     height: 50px;
     border: 1px solid #000;
     border-radius: 5px;
-    background-color: ${(props) => props.colorOfPiece};
+    background-color: ${(props) => props.$colorofpiece};
     &:hover {
         border-radius: 10px;
-        background-color: ${(props) => props.colorOfPiece === "white" ? "silver" : props.colorOfPiece === "yellow" ? "gold" : props.colorOfPiece === "green" ? "lime" : props.colorOfPiece === "blue" ? "cyan" : props.colorOfPiece === "red" ? "tomato" : "tan"};
+        background-color: ${(props) => props.$colorofpiece === "white" ? "silver" : props.$colorofpiece === "yellow" ? "gold" : props.$colorofpiece === "green" ? "lime" : props.$colorofpiece === "blue" ? "cyan" : props.$colorofpiece === "red" ? "tomato" : "tan"};
 
     }
 

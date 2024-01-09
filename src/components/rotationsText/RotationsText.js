@@ -7,7 +7,7 @@ const RotationsText = ({solution}) => {
         <label>
             Rotations Performed:<span title='explanation'>?</span>
         </label>
-        <textarea className='rotationsText' value={solution} readOnly />
+        <textarea id='rotationsText' className='rotationsText' value={solution} readOnly />
 
     </div>
   )

@@ -10,7 +10,7 @@ const Home = () => {
   const regex = new RegExp('[^rbgoyw]');
   const [cubeString, setCubeString] = useState('gggggggggbbbbbbbbbrrrrrrrrroooooooooyyyyyyyyywwwwwwwww')
   const [cubeSolution, setCubeSolution] = useState('')
-  var isSolved = true
+  //var isSolved = true
   //const [cubeRotations, setCubeRotations] = useState('')
   const handleChange = (event) => {
     setCubeString(event.target.value)
@@ -45,8 +45,10 @@ const Home = () => {
       //console.log(rotations.slice(0,4))
       for (const rotation of rotations) {
         currentCubeString = await rotate(rotation, currentCubeString)
+        //await new Promise(r => setTimeout(r, 10));
        //setCubeString(await rotate(rotation, currentCubeString))
       }
+      //setCubeString(currentCubeString)
       //rotate(rotations)
     }
 }
@@ -76,9 +78,7 @@ const rotate = async (rotation, currentCubeString) => {
     }
     try{
       const response = await api.get(`/rubik/rotate?dir=${randomRotations()}&cube=${cubeString}`)
-      //response.data = response.data.split(' ')[1].replace(',', '').replace(/'/g, '')
       setCubeString(parseResponse(response.data))
-      //handleChange(response.data)
     }
     catch(error){
       console.log(error)
@@ -96,12 +96,10 @@ const rotate = async (rotation, currentCubeString) => {
   }
 
   const parseResponse = (response) => {
-    if (response === undefined){
-      return(
-        <div></div>
-      )
+    if (response !== undefined){
+      return response.split(' ')[1].replace(',', '').replace(/'/g, '')
     }
-    return response.split(' ')[1].replace(',', '').replace(/'/g, '')
+    
   }
 
   return (
@@ -111,14 +109,15 @@ const rotate = async (rotation, currentCubeString) => {
       </div>
       
       <div className='fieldContainer'>
-        <input placeholder='Enter input Cube' className='userInputField' type="text" onChange={handleChange} value={cubeString}/>
+        <input id='userInputField' placeholder='Enter input Cube' className='userInputField' type="text" onChange={handleChange} value={cubeString}/>
       </div>
       <div className="userButtonsContainer">
         <button onClick={getSolveResponse} >Solve</button>
         <button onClick={getScrambleResponse} >Scramble</button>
       </div>
-      <Cube inputCubeString={cubeString.length === validCubeStringLength && !(regex.test(cubeString)) ? cubeString : ""} solution={cubeSolution}/>
-      {/*<Rotator solution={cubeSolution} cubeString={cubeString.length === validCubeStringLength && !(regex.test(cubeString)) ? cubeString : ""}/>*/}
+      <Cube inputCubeString={
+        cubeString.length === validCubeStringLength && !(regex.test(cubeString)) ? cubeString : ""} 
+        solution={cubeSolution}/>
       <RotationsText solution={cubeSolution}/>
     </div>
   )

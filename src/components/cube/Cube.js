@@ -2,14 +2,15 @@ import React from 'react'
 import { Face, Square, RowContainer, ColumnContainer, CubeContainer } from './Cube.style'
 //import Rotator from './Rotator'
 
-const Cube = ({inputCubeString}, {solution}) => {
+const Cube = ({inputCubeString}) => {
 
-    const leftFaceColors = separateColorsForEachFace(inputCubeString).left
-    const rightFaceColors = separateColorsForEachFace(inputCubeString).right
-    const frontFaceColors = separateColorsForEachFace(inputCubeString).front
-    const backFaceColors = separateColorsForEachFace(inputCubeString).back
-    const topFaceColors = separateColorsForEachFace(inputCubeString).top
-    const bottomFaceColors = separateColorsForEachFace(inputCubeString).bottom
+    /*const cubeFaces.left = separateColorsForEachFace(inputCubeString).left
+    const cubeFaces.right = separateColorsForEachFace(inputCubeString).right
+    const cubeFaces.front = separateColorsForEachFace(inputCubeString).front
+    const cubeFaces.back = separateColorsForEachFace(inputCubeString).back
+    const cubeFaces.top = separateColorsForEachFace(inputCubeString).top
+    const cubeFaces.bottom = separateColorsForEachFace(inputCubeString).bottom*/
+    const cubeFaces = separateColorsForEachFace(inputCubeString)
     
 
 
@@ -18,72 +19,72 @@ const Cube = ({inputCubeString}, {solution}) => {
         
         <RowContainer>
             <Face id="left">
-                <Square colorOfPiece={leftFaceColors.length !== 0 ? leftFaceColors[0] : "red"}/>
-                <Square colorOfPiece={leftFaceColors.length !== 0 ? leftFaceColors[1] : "red"}/>
-                <Square colorOfPiece={leftFaceColors.length !== 0 ? leftFaceColors[2] : "red"}/>
-                <Square colorOfPiece={leftFaceColors.length !== 0 ? leftFaceColors[3] : "red"}/>
-                <Square colorOfPiece={leftFaceColors.length !== 0 ? leftFaceColors[4] : "red"}/>
-                <Square colorOfPiece={leftFaceColors.length !== 0 ? leftFaceColors[5] : "red"}/>
-                <Square colorOfPiece={leftFaceColors.length !== 0 ? leftFaceColors[6] : "red"}/>
-                <Square colorOfPiece={leftFaceColors.length !== 0 ? leftFaceColors[7] : "red"}/>
-                <Square colorOfPiece={leftFaceColors.length !== 0 ? leftFaceColors[8] : "red"}/>
+                <Square $colorofpiece={cubeFaces.left.length !== 0 ? cubeFaces.left[0] : "red"}/>
+                <Square $colorofpiece={cubeFaces.left.length !== 0 ? cubeFaces.left[1] : "red"}/>
+                <Square $colorofpiece={cubeFaces.left.length !== 0 ? cubeFaces.left[2] : "red"}/>
+                <Square $colorofpiece={cubeFaces.left.length !== 0 ? cubeFaces.left[3] : "red"}/>
+                <Square $colorofpiece={cubeFaces.left.length !== 0 ? cubeFaces.left[4] : "red"}/>
+                <Square $colorofpiece={cubeFaces.left.length !== 0 ? cubeFaces.left[5] : "red"}/>
+                <Square $colorofpiece={cubeFaces.left.length !== 0 ? cubeFaces.left[6] : "red"}/>
+                <Square $colorofpiece={cubeFaces.left.length !== 0 ? cubeFaces.left[7] : "red"}/>
+                <Square $colorofpiece={cubeFaces.left.length !== 0 ? cubeFaces.left[8] : "red"}/>
             </Face>
             <ColumnContainer>
                 <Face id="top">
-                    <Square colorOfPiece= {topFaceColors.length !== 0 ? topFaceColors[0] : "yellow"}/>
-                    <Square colorOfPiece={topFaceColors.length !== 0 ? topFaceColors[1] : "yellow"}/>
-                    <Square colorOfPiece={topFaceColors.length !== 0 ? topFaceColors[2] : "yellow"}/>
-                    <Square colorOfPiece={topFaceColors.length !== 0 ? topFaceColors[3] : "yellow"}/>
-                    <Square colorOfPiece={topFaceColors.length !== 0 ? topFaceColors[4] : "yellow"}/>
-                    <Square colorOfPiece={topFaceColors.length !== 0 ? topFaceColors[5] : "yellow"}/>
-                    <Square colorOfPiece={topFaceColors.length !== 0 ? topFaceColors[6] : "yellow"}/>
-                    <Square colorOfPiece={topFaceColors.length !== 0 ? topFaceColors[7] : "yellow"}/>
-                    <Square colorOfPiece={topFaceColors.length !== 0 ? topFaceColors[8] : "yellow"}/>
+                    <Square $colorofpiece= {cubeFaces.top.length !== 0 ? cubeFaces.top[0] : "yellow"}/>
+                    <Square $colorofpiece={cubeFaces.top.length !== 0 ? cubeFaces.top[1] : "yellow"}/>
+                    <Square $colorofpiece={cubeFaces.top.length !== 0 ? cubeFaces.top[2] : "yellow"}/>
+                    <Square $colorofpiece={cubeFaces.top.length !== 0 ? cubeFaces.top[3] : "yellow"}/>
+                    <Square $colorofpiece={cubeFaces.top.length !== 0 ? cubeFaces.top[4] : "yellow"}/>
+                    <Square $colorofpiece={cubeFaces.top.length !== 0 ? cubeFaces.top[5] : "yellow"}/>
+                    <Square $colorofpiece={cubeFaces.top.length !== 0 ? cubeFaces.top[6] : "yellow"}/>
+                    <Square $colorofpiece={cubeFaces.top.length !== 0 ? cubeFaces.top[7] : "yellow"}/>
+                    <Square $colorofpiece={cubeFaces.top.length !== 0 ? cubeFaces.top[8] : "yellow"}/>
                 </Face>
                 <Face id="front">
-                    <Square colorOfPiece={frontFaceColors.length !== 0 ? frontFaceColors[0] : "green" }/>
-                    <Square colorOfPiece={frontFaceColors.length !== 0 ? frontFaceColors[1] : "green" }/>
-                    <Square colorOfPiece={frontFaceColors.length !== 0 ? frontFaceColors[2] : "green" }/>
-                    <Square colorOfPiece={frontFaceColors.length !== 0 ? frontFaceColors[3] : "green" }/>
-                    <Square colorOfPiece={frontFaceColors.length !== 0 ? frontFaceColors[4] : "green" }/>
-                    <Square colorOfPiece={frontFaceColors.length !== 0 ? frontFaceColors[5] : "green" }/>
-                    <Square colorOfPiece={frontFaceColors.length !== 0 ? frontFaceColors[6] : "green" }/>
-                    <Square colorOfPiece={frontFaceColors.length !== 0 ? frontFaceColors[7] : "green" }/>
-                    <Square colorOfPiece={frontFaceColors.length !== 0 ? frontFaceColors[8] : "green" }/>
+                    <Square $colorofpiece={cubeFaces.front.length !== 0 ? cubeFaces.front[0] : "green" }/>
+                    <Square $colorofpiece={cubeFaces.front.length !== 0 ? cubeFaces.front[1] : "green" }/>
+                    <Square $colorofpiece={cubeFaces.front.length !== 0 ? cubeFaces.front[2] : "green" }/>
+                    <Square $colorofpiece={cubeFaces.front.length !== 0 ? cubeFaces.front[3] : "green" }/>
+                    <Square $colorofpiece={cubeFaces.front.length !== 0 ? cubeFaces.front[4] : "green" }/>
+                    <Square $colorofpiece={cubeFaces.front.length !== 0 ? cubeFaces.front[5] : "green" }/>
+                    <Square $colorofpiece={cubeFaces.front.length !== 0 ? cubeFaces.front[6] : "green" }/>
+                    <Square $colorofpiece={cubeFaces.front.length !== 0 ? cubeFaces.front[7] : "green" }/>
+                    <Square $colorofpiece={cubeFaces.front.length !== 0 ? cubeFaces.front[8] : "green" }/>
                 </Face>
                 <Face id="bottom">
-                    <Square colorOfPiece={bottomFaceColors.length !== 0 ? bottomFaceColors[0] : "white"}/>
-                    <Square colorOfPiece={bottomFaceColors.length !== 0 ? bottomFaceColors[1] : "white"}/>
-                    <Square colorOfPiece={bottomFaceColors.length !== 0 ? bottomFaceColors[2] : "white"}/>
-                    <Square colorOfPiece={bottomFaceColors.length !== 0 ? bottomFaceColors[3] : "white"}/>
-                    <Square colorOfPiece={bottomFaceColors.length !== 0 ? bottomFaceColors[4] : "white"}/>
-                    <Square colorOfPiece={bottomFaceColors.length !== 0 ? bottomFaceColors[5] : "white"}/>
-                    <Square colorOfPiece={bottomFaceColors.length !== 0 ? bottomFaceColors[6] : "white"}/>
-                    <Square colorOfPiece={bottomFaceColors.length !== 0 ? bottomFaceColors[7] : "white"}/>
-                    <Square colorOfPiece={bottomFaceColors.length !== 0 ? bottomFaceColors[8] : "white"}/>
+                    <Square $colorofpiece={cubeFaces.bottom.length !== 0 ? cubeFaces.bottom[0] : "white"}/>
+                    <Square $colorofpiece={cubeFaces.bottom.length !== 0 ? cubeFaces.bottom[1] : "white"}/>
+                    <Square $colorofpiece={cubeFaces.bottom.length !== 0 ? cubeFaces.bottom[2] : "white"}/>
+                    <Square $colorofpiece={cubeFaces.bottom.length !== 0 ? cubeFaces.bottom[3] : "white"}/>
+                    <Square $colorofpiece={cubeFaces.bottom.length !== 0 ? cubeFaces.bottom[4] : "white"}/>
+                    <Square $colorofpiece={cubeFaces.bottom.length !== 0 ? cubeFaces.bottom[5] : "white"}/>
+                    <Square $colorofpiece={cubeFaces.bottom.length !== 0 ? cubeFaces.bottom[6] : "white"}/>
+                    <Square $colorofpiece={cubeFaces.bottom.length !== 0 ? cubeFaces.bottom[7] : "white"}/>
+                    <Square $colorofpiece={cubeFaces.bottom.length !== 0 ? cubeFaces.bottom[8] : "white"}/>
                 </Face>
             </ColumnContainer>
             <Face id="right">
-                <Square colorOfPiece={rightFaceColors.length !== 0 ? rightFaceColors[0] : "orange"}/>
-                <Square colorOfPiece={rightFaceColors.length !== 0 ? rightFaceColors[1] : "orange"}/>
-                <Square colorOfPiece={rightFaceColors.length !== 0 ? rightFaceColors[2] : "orange"}/>
-                <Square colorOfPiece={rightFaceColors.length !== 0 ? rightFaceColors[3] : "orange"}/>
-                <Square colorOfPiece={rightFaceColors.length !== 0 ? rightFaceColors[4] : "orange"}/>
-                <Square colorOfPiece={rightFaceColors.length !== 0 ? rightFaceColors[5] : "orange"}/>
-                <Square colorOfPiece={rightFaceColors.length !== 0 ? rightFaceColors[6] : "orange"}/>
-                <Square colorOfPiece={rightFaceColors.length !== 0 ? rightFaceColors[7] : "orange"}/>
-                <Square colorOfPiece={rightFaceColors.length !== 0 ? rightFaceColors[8] : "orange"}/>
+                <Square $colorofpiece={cubeFaces.right.length !== 0 ? cubeFaces.right[0] : "orange"}/>
+                <Square $colorofpiece={cubeFaces.right.length !== 0 ? cubeFaces.right[1] : "orange"}/>
+                <Square $colorofpiece={cubeFaces.right.length !== 0 ? cubeFaces.right[2] : "orange"}/>
+                <Square $colorofpiece={cubeFaces.right.length !== 0 ? cubeFaces.right[3] : "orange"}/>
+                <Square $colorofpiece={cubeFaces.right.length !== 0 ? cubeFaces.right[4] : "orange"}/>
+                <Square $colorofpiece={cubeFaces.right.length !== 0 ? cubeFaces.right[5] : "orange"}/>
+                <Square $colorofpiece={cubeFaces.right.length !== 0 ? cubeFaces.right[6] : "orange"}/>
+                <Square $colorofpiece={cubeFaces.right.length !== 0 ? cubeFaces.right[7] : "orange"}/>
+                <Square $colorofpiece={cubeFaces.right.length !== 0 ? cubeFaces.right[8] : "orange"}/>
             </Face>
             <Face id="back">
-                <Square colorOfPiece={backFaceColors.length !== 0 ? backFaceColors[0] : "blue"}/>
-                <Square colorOfPiece={backFaceColors.length !== 0 ? backFaceColors[1] : "blue"}/>
-                <Square colorOfPiece={backFaceColors.length !== 0 ? backFaceColors[2] : "blue"}/>
-                <Square colorOfPiece={backFaceColors.length !== 0 ? backFaceColors[3] : "blue"}/>
-                <Square colorOfPiece={backFaceColors.length !== 0 ? backFaceColors[4] : "blue"}/>
-                <Square colorOfPiece={backFaceColors.length !== 0 ? backFaceColors[5] : "blue"}/>
-                <Square colorOfPiece={backFaceColors.length !== 0 ? backFaceColors[6] : "blue"}/>
-                <Square colorOfPiece={backFaceColors.length !== 0 ? backFaceColors[7] : "blue"}/>
-                <Square colorOfPiece={backFaceColors.length !== 0 ? backFaceColors[8] : "blue"}/>
+                <Square $colorofpiece={cubeFaces.back.length !== 0 ? cubeFaces.back[0] : "blue"}/>
+                <Square $colorofpiece={cubeFaces.back.length !== 0 ? cubeFaces.back[1] : "blue"}/>
+                <Square $colorofpiece={cubeFaces.back.length !== 0 ? cubeFaces.back[2] : "blue"}/>
+                <Square $colorofpiece={cubeFaces.back.length !== 0 ? cubeFaces.back[3] : "blue"}/>
+                <Square $colorofpiece={cubeFaces.back.length !== 0 ? cubeFaces.back[4] : "blue"}/>
+                <Square $colorofpiece={cubeFaces.back.length !== 0 ? cubeFaces.back[5] : "blue"}/>
+                <Square $colorofpiece={cubeFaces.back.length !== 0 ? cubeFaces.back[6] : "blue"}/>
+                <Square $colorofpiece={cubeFaces.back.length !== 0 ? cubeFaces.back[7] : "blue"}/>
+                <Square $colorofpiece={cubeFaces.back.length !== 0 ? cubeFaces.back[8] : "blue"}/>
             </Face>            
         </RowContainer>
         
