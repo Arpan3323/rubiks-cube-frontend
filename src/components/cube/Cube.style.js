@@ -5,6 +5,7 @@ export const CubeContainer = styled.div`
     padding: 2rem 0;
     margin-top: 1rem;
     border: 1px solid #000;
+    
 
 `;
 

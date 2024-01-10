@@ -4,13 +4,14 @@ import api from '../../api/axiosConfig'
 import { useState } from 'react'
 import Cube from '../cube/Cube';
 import RotationsText from '../rotationsText/RotationsText';
+import RotationButtons from '../rotationButtons/RotationButtons';
 
 const Home = () => {
   const validCubeStringLength = 54
   const regex = new RegExp('[^rbgoyw]');
   const [cubeString, setCubeString] = useState('gggggggggbbbbbbbbbrrrrrrrrroooooooooyyyyyyyyywwwwwwwww')
   const [cubeSolution, setCubeSolution] = useState('')
-  //var isSolved = true
+  var isSolving = true
   //const [cubeRotations, setCubeRotations] = useState('')
   const handleChange = (event) => {
     setCubeString(event.target.value)
@@ -41,6 +42,7 @@ const Home = () => {
     console.log(rotations.length)
     if (rotations && rotations.length !== 0){
       let currentCubeString = cubeString
+      isSolving = true
       //rotate(rotations)
       //console.log(rotations.slice(0,4))
       for (const rotation of rotations) {
@@ -48,6 +50,7 @@ const Home = () => {
         //await new Promise(r => setTimeout(r, 10));
        //setCubeString(await rotate(rotation, currentCubeString))
       }
+      isSolving = false
       //setCubeString(currentCubeString)
       //rotate(rotations)
     }
@@ -111,13 +114,19 @@ const rotate = async (rotation, currentCubeString) => {
       <div className='fieldContainer'>
         <input id='userInputField' placeholder='Enter input Cube' className='userInputField' type="text" onChange={handleChange} value={cubeString}/>
       </div>
+
       <div className="userButtonsContainer">
         <button onClick={getSolveResponse} >Solve</button>
         <button onClick={getScrambleResponse} >Scramble</button>
       </div>
+
+      <div className='cubeAndRotationButtonsContainer'>
       <Cube inputCubeString={
         cubeString.length === validCubeStringLength && !(regex.test(cubeString)) ? cubeString : ""} 
         solution={cubeSolution}/>
+        <RotationButtons rotator={rotate} cube={cubeString}/>
+      </div>
+      
       <RotationsText solution={cubeSolution}/>
     </div>
   )
