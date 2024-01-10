@@ -9,7 +9,6 @@
 
 .errorMessage{
     align-items: center;
-    border : 1px solid red;
     margin: 0.5rem;
     height: 30px;
     padding: 0.5rem;
@@ -22,7 +21,6 @@
     justify-content: center;
     width: 99%;
     padding: 1rem 1rem 1rem 0.7rem;
-    border: 1px solid #2e68b4d7;
     
     
 }
@@ -35,7 +33,6 @@
     align-items: center;
     gap: 18rem;
     width: 95%;
-    border: 1px solid #2e68b4d7;
     
 }
 
@@ -81,7 +78,6 @@
     align-items: center;
     gap: 5rem;
     width: 90%;
-    border: 1px solid #2e68b4d7;
     padding-left: 20%;
 }
 
@@ -99,7 +95,6 @@
     .userButtonsContainer{
         gap: 7rem;
         width: 95%;
-        border: 1px solid #2e68b4d7;
         
     }
     .userButtonsContainer button{

@@ -12,7 +12,6 @@ const Home = () => {
   const [cubeString, setCubeString] = useState('gggggggggbbbbbbbbbrrrrrrrrroooooooooyyyyyyyyywwwwwwwww')
   const [cubeSolution, setCubeSolution] = useState('')
   const [isSolving, setIsSolving] = useState(false);
-  //const [cubeRotations, setCubeRotations] = useState('')
   const handleChange = (event) => {
     setCubeString(event.target.value)
   }
@@ -38,20 +37,13 @@ const Home = () => {
   }
 
   const initiateRotations = async (rotations) => {
-    console.log(rotations)
-    console.log(rotations.length)
     if (rotations && rotations.length !== 0){
       let currentCubeString = cubeString
       setIsSolving(true)
-      //console.log(rotations.slice(0,4))
       for (const rotation of rotations) {
         currentCubeString = await rotate(rotation, currentCubeString)
-        //await new Promise(r => setTimeout(r, 10));
-       //setCubeString(await rotate(rotation, currentCubeString))
       }
       setIsSolving(false)
-      //setCubeString(currentCubeString)
-      //rotate(rotations)
     }
 }
 
@@ -60,7 +52,6 @@ const rotate = async (rotation, currentCubeString) => {
     const response = await api.get(`/rubik/rotate?dir=${rotation}&cube=${currentCubeString}`)
     const newCubeString = parseResponse(response.data)
     setCubeString(newCubeString)
-    console.log(newCubeString)
     return newCubeString
   }
   catch(error){
@@ -69,7 +60,6 @@ const rotate = async (rotation, currentCubeString) => {
 }
 
   const getScrambleResponse = async () => {
-    //TODO: This is getting messy, I should probably make a function to handle this
     if (cubeString.length !== validCubeStringLength){
       alert('Cube string must be 54 characters long')
       return
@@ -90,7 +80,6 @@ const rotate = async (rotation, currentCubeString) => {
   const randomRotations = () => {
     const rotations = ['F', 'f', 'B', 'b', 'R', 'r', 'L', 'l', 'U', 'u']
     let scramble = ''
-    //chooses a random rotation 4 times from the rotations array and adds it to the scramble string
     for (let i = 0; i < 4; i++){
       scramble += rotations[Math.floor(Math.random() * rotations.length)]
     }

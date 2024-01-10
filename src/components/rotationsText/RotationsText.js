@@ -5,7 +5,7 @@ const RotationsText = ({solution}) => {
   return (
     <div className='rotationsTextContainer'>
         <label>
-            Rotations Performed:<span title='explanation'>?</span>
+            Rotations Performed
         </label>
         <textarea id='rotationsText' className='rotationsText' value={solution} readOnly />
 
