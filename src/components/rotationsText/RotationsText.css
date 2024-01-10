@@ -3,7 +3,7 @@
     margin: 1rem;
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 80%;
     height: 250px;
     align-items: center;
 }
@@ -15,7 +15,7 @@
 
 .rotationsTextContainer textarea{
     width: 80%;
-    height: 80%;
+    height: 50%;
     border: 1px solid #2e68b4d7;
     border-radius: 10px;
     padding: 0.5rem;
@@ -37,4 +37,15 @@
     
     box-shadow: 0 0 10px #2e3ecad7;
     transition: all 0.5s ease;
+}
+
+@media (max-width: 800px) {
+    .rotationsTextContainer label{
+        font-size: 1.2rem;
+    }
+    .rotationsTextContainer textarea{
+        width: 95%;
+        height: 70%;
+    }
+    
 }

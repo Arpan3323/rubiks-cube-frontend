@@ -11,7 +11,7 @@ const Home = () => {
   const regex = new RegExp('[^rbgoyw]');
   const [cubeString, setCubeString] = useState('gggggggggbbbbbbbbbrrrrrrrrroooooooooyyyyyyyyywwwwwwwww')
   const [cubeSolution, setCubeSolution] = useState('')
-  var isSolving = true
+  const [isSolving, setIsSolving] = useState(false);
   //const [cubeRotations, setCubeRotations] = useState('')
   const handleChange = (event) => {
     setCubeString(event.target.value)
@@ -42,15 +42,14 @@ const Home = () => {
     console.log(rotations.length)
     if (rotations && rotations.length !== 0){
       let currentCubeString = cubeString
-      isSolving = true
-      //rotate(rotations)
+      setIsSolving(true)
       //console.log(rotations.slice(0,4))
       for (const rotation of rotations) {
         currentCubeString = await rotate(rotation, currentCubeString)
         //await new Promise(r => setTimeout(r, 10));
        //setCubeString(await rotate(rotation, currentCubeString))
       }
-      isSolving = false
+      setIsSolving(false)
       //setCubeString(currentCubeString)
       //rotate(rotations)
     }
@@ -112,22 +111,43 @@ const rotate = async (rotation, currentCubeString) => {
       </div>
       
       <div className='fieldContainer'>
-        <input id='userInputField' placeholder='Enter input Cube' className='userInputField' type="text" onChange={handleChange} value={cubeString}/>
+        <input 
+          id='userInputField' 
+          placeholder='Enter input Cube' 
+          className='userInputField' 
+          type="text" 
+          onChange={handleChange} 
+          value={cubeString} 
+          readOnly={isSolving?true:false} 
+          style={isSolving ? { backgroundColor: '#C8C8C8' } : {}}/>
       </div>
 
       <div className="userButtonsContainer">
-        <button onClick={getSolveResponse} >Solve</button>
-        <button onClick={getScrambleResponse} >Scramble</button>
+        <button 
+          onClick={getSolveResponse} 
+          readOnly={isSolving?true:false} 
+          style={isSolving ? { backgroundColor: '#C8C8C8' } : {}}>
+            Solve
+        </button>
+        <button 
+          onClick={getScrambleResponse} 
+          readOnly={isSolving?true:false} 
+          style={isSolving ? { backgroundColor: '#C8C8C8' } : {}}>
+            Scramble
+        </button>
       </div>
 
       <div className='cubeAndRotationButtonsContainer'>
-      <Cube inputCubeString={
-        cubeString.length === validCubeStringLength && !(regex.test(cubeString)) ? cubeString : ""} 
-        solution={cubeSolution}/>
-        <RotationButtons rotator={rotate} cube={cubeString}/>
+        <Cube 
+          inputCubeString={cubeString.length === validCubeStringLength && !(regex.test(cubeString)) ? cubeString : ""} 
+          solution={cubeSolution}/>
+        <RotationButtons 
+          rotator={rotate} 
+          cube={cubeString}/>
       </div>
       
-      <RotationsText solution={cubeSolution}/>
+      <RotationsText 
+        solution={cubeSolution}/>
     </div>
   )
 }

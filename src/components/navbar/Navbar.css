@@ -9,7 +9,7 @@
     height: 3rem;
 }
 
-.navbar a {
+.siteTitle {
     position: relative;
     overflow: hidden;
     text-decoration: none;
@@ -23,8 +23,34 @@
     font-family: 'Georgia', sans-serif;
 }
 
+.sourceLinks{
+    font-size: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-decoration:underline;
+    position: absolute;
+    right: 0;
+    padding-right: 20px;
+    
+}
 
 .navbar :active {
     transform: scale(0.98);
+
+}
+
+@media (max-width: 800px){
+    .siteTitle{
+        font-size: 1rem;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .sourceLinks{
+        padding-right: 10px;
+    }
 
 }
