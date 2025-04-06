@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/rubiks-cube-frontend/static/css/main.7d7538c4.css",
-    "main.js": "/rubiks-cube-frontend/static/js/main.d05c27b0.js",
+    "main.js": "/rubiks-cube-frontend/static/js/main.a596cad6.js",
     "index.html": "/rubiks-cube-frontend/index.html",
     "main.7d7538c4.css.map": "/rubiks-cube-frontend/static/css/main.7d7538c4.css.map",
-    "main.d05c27b0.js.map": "/rubiks-cube-frontend/static/js/main.d05c27b0.js.map"
+    "main.a596cad6.js.map": "/rubiks-cube-frontend/static/js/main.a596cad6.js.map"
   },
   "entrypoints": [
     "static/css/main.7d7538c4.css",
-    "static/js/main.d05c27b0.js"
+    "static/js/main.a596cad6.js"
   ]
 }
